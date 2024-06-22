@@ -1,0 +1,26 @@
+.dropdown-list {
+    display: none;
+    position: absolute;
+    background-color: rgb(0, 0, 0);
+    border: 1px solid #ccc;
+    z-index: 1; /* Ensure it appears above other elements */
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-item {
+    width: 80px; /* Adjust the width of each square */
+    height: 50px; /* Adjust the height of each square */
+    overflow: hidden;
+}
+
+.grid-item img {
+    width: 100%; /* Make sure the image fills the square */
+    height: 100%; /* Make sure the image fills the square */
+}
+#dropdownButton:hover + #dropdownList,
+#dropdownList:hover {
+    display: block;
+}

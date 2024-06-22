@@ -1,0 +1,28 @@
+.backlog-column {
+    height: 495px;
+    overflow-y: scroll;
+}
+
+.backlog-card {
+    margin-bottom: 10px;
+}
+
+.select-red {
+    background-color: #dc3545;
+}
+
+.select-green {
+    background-color: #198754;
+}
+
+.select-yellow {
+    background-color: #ffc107;
+}
+
+#task-form {
+    display: none;
+}
+
+#dropdownButton:hover + #dropdownList {
+    display: block;
+}

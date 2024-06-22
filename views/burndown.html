@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="js/darkmode.js"></script>
+    <script src="js/background.js"></script>
+    <script src="js/cookie.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/background.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burndown</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script></head>
+    <style>
+      canvas {
+   background-color: rgb(6, 245, 221);
+      }
+      
+        .chart-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            width: 80%; /* Adjust the width as needed */
+            float: left; /* Float the containers left to place them side by side */
+            margin-right: 10px; /* Add some margin for spacing */
+            margin-left: 150px;
+            margin-top: 50px;
+            padding: 50px;
+            border-radius: 40px;
+        }
+        .chart {
+          flex: 1;
+          max-width: calc(50% - 10px);
+          margin: 5px;
+        }
+
+        #chart1-container {
+          width: 80%;
+          margin: 10 auto;
+        }
+        #chart2-container {
+          width: 80%;
+          margin: 10 auto;
+        }
+    </style>
+<body>
+    <nav class="navbar navbar-expand-lg bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><h1 class="text-light">AgileTech &#128507;</h1></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/dashboard">Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/backlog">Backlog</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/profile">Profile</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/burndown">Progress</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/" onclick='document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";'>Sign Out</a>
+              </li>
+            </ul>
+            <span class="navbar-text">
+              <div class="container">
+                <button id="dropdownButton" class="btn btn-primary">Change Background</button>
+                <div id="dropdownList" class="dropdown-list">
+                  <div class="grid-container">
+                    <div class="grid-item"><img src="/images/afghanistan.jpg" onclick="changeBackground('/images/afghanistan.jpg'); backgroundDarkMode(false)"></div>
+                    <div class="grid-item"><img src="/images/blue_smokey.jpg" onclick="changeBackground('/images/blue_smokey.jpg'); backgroundDarkMode(true)"></div>
+                    <div class="grid-item"><img src="/images/DD-grunge.jpg" onclick="changeBackground('/images/DD-grunge.jpg'); backgroundDarkMode(false)"></div>
+                    <div class="grid-item"><img src="/images/goemetric_triangles.jpg" onclick="changeBackground('/images/goemetric_triangles.jpg'); backgroundDarkMode(true)"></div>
+                    <div class="grid-item"><img src="/images/green.jpg" onclick="changeBackground('/images/green.jpg'); backgroundDarkMode(false)"></div>
+                    <div class="grid-item"><img src="/images/grunge_stripes.jpg" onclick="changeBackground('/images/grunge_stripes.jpg'); backgroundDarkMode(false)"></div>
+                    <div class="grid-item"><img src="/images/paint_splat.jpg" onclick="changeBackground('/images/paint_splat.jpg'); backgroundDarkMode(false)"></div>
+                    <div class="grid-item"><img src="/images/sunset.jpg" onclick="changeBackground('/images/sunset.jpg'); backgroundDarkMode(true)"></div>
+                    <div class="grid-item"><img src="/images/vector-prisma-background.jpg" onclick="changeBackground('/images/vector-prisma-background.jpg'); backgroundDarkMode(true)"></div>
+                  </div>
+                </div>
+              </div>
+            </span>
+            <span class="navbar-text">
+                <button id="darkModeToggle" class="btn btn-primary" onclick="darkMode()">Switch to dark mode</button>
+            </span>
+          </div>
+        </div>
+      </nav>
+    <div class="chart-container">
+      <div id="chart1-container" class="chart" style="width:800px;">
+          <canvas id="myChart"></canvas>
+      </div>
+      <div id="chart2-container" class="chart" style="width:800px;">
+          <canvas id="myChart2"></canvas>
+      </div>
+    </div>
+    <script type="module" src="js/burndown.js"></script>
+
+    <img src="/images/finished2.png">
+
+
+
+</body>
+</html>

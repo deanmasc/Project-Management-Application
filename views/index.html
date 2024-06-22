@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="js/darkmode.js"></script>
+    <script src="js/cookie.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <title>Login</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #FF0000, #FFA500, #FFFF00, #008000, #0000FF, #4B0082, #8B00FF);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            animation: fadeInBackground 2s ease;
+            background-size: 1400% 100%;
+            animation: gradient 15s linear infinite;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 100% 0;
+            }
+            100% {
+                background-position: -100% 0;
+            }
+        }
+
+        .news-container {
+            width: 100%;
+            height: 300px; /* Increased height for better visibility */
+        }
+
+        .login-container {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            padding: 20px;
+            border-radius: 30px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            animation: fadeInContainer 1s;
+            color: #fff; /* Text color */
+            margin-top: 20px; /* Add some margin to move it below the news section */
+        }
+
+        @keyframes fadeInContainer {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .login-container h1 {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 42px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 18px;
+            border: none;
+            border-radius: 30px;
+            margin-bottom: 20px;
+            font-size: 18px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 20px;
+            color: #fff;
+            transition: background-position 0.5s;
+            padding: 15px;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(315deg, #007bff, #0056b3);
+            transform: scale(1.05);
+        }
+
+        .register-link {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .register-link a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 18px;
+        }
+
+        .register-link a:hover {
+            color: #ddd;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+        }
+
+        .login-button-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .error-message {
+            color: #ff0000;
+            font-size: 18px;
+            display: none;
+        }
+
+        .error-message p {
+            margin: 0;
+        }
+
+        .error-message .close-btn {
+            display: inline-block;
+            font-weight: bold;
+            cursor: pointer;
+            padding: 0 4px;
+        }
+
+        .error-message .close-btn:hover {
+            text-decoration: underline;
+        }
+
+        .error-message.slide-up {
+            animation: slideUp 0.5s;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body onload="checkDarkMode()">
+    <div class="news-container">
+        <iframe src="https://www.skynews.com.au" width="100%" height="300px" frameborder="0"></iframe>
+    </div>
+
+    <div class="login-container">
+        <h1>AgileTech Innovators</h1>
+        <form action="/login" method="post">
+            <input class="form-control" type="text" id="username" name="username" placeholder="Username" required>
+            <input class="form-control" type="password" id="password" name="password" placeholder="Password" required>
+            <div class="login-button-container">
+                <button class="btn btn-primary" type="submit">Login</button>
+            </div>
+        </form>
+        <div class="register-link">
+            <p>Don't have an account? <a href="/register">Register</a></p>
+        </div>
+        <div class="error-message">
+            <p>Incorrect username or password. Please try again. <span class="close-btn" onclick="closeErrorMessage()">Close</span></p>
+        </div>
+    </div>
+
+    <script>
+        function closeErrorMessage() {
+            const errorMessage = document.querySelector('.error-message');
+            errorMessage.classList.remove('slide-up');
+            setTimeout(() => {
+                errorMessage.style.display = 'none';
+            }, 500);
+        }
+    </script>
+</body>
+</html>
